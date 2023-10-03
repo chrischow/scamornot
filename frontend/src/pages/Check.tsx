@@ -2,6 +2,7 @@ import { Box, Button, HStack, Heading, Spacer, Text, VStack } from '@chakra-ui/r
 import { useContext } from 'react'
 import NodeCard from '../components/NodeCard'
 import OutcomeCard from '../components/OutcomeCard'
+import Para from '../components/text/Para'
 import { CheckContext } from '../context/checkContext'
 import { root } from '../data'
 
@@ -20,9 +21,11 @@ const CheckPage = () => {
     <>
       <VStack>
         <Heading size="2xl">Scam Check</Heading>
-        <Text fontWeight="semibold" fontSize="lg">
-          Select the most appropriate option in the series of questions below.
-        </Text>
+        {nodes.length > 1 && (
+          <Text fontWeight="semibold" fontSize="lg">
+            Select the most appropriate option in the series of questions below.
+          </Text>
+        )}
       </VStack>
       <Box marginTop={8} width="100%">
         {currentNode.instruction && <Box mb={4}>{currentNode.instruction}</Box>}
@@ -46,7 +49,7 @@ const CheckPage = () => {
       </Box>
       <HStack mt={4}>
         {isRestartable && (
-          <Button variant='ghost' colorScheme="red" size="sm" onClick={resetCheck}>
+          <Button variant="ghost" colorScheme="red" size="sm" onClick={resetCheck}>
             Restart the check
           </Button>
         )}
@@ -64,6 +67,7 @@ const CheckPage = () => {
           <Heading size="lg" as="span">
             History
           </Heading>
+          <Para>Click on the buttons below to go back to a previous step.</Para>
           <Box marginTop={4} width="100%">
             {selectionHistory.map((node, index) => {
               return (

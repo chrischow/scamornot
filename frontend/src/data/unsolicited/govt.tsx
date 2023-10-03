@@ -74,8 +74,8 @@ unsolicitedGovt.addInstruction(
   <>
     <ContentHeader>Did they know your personal details?</ContentHeader>
     <Para>
-      Government officials who contact you should know who you are. As the recipient of a message or call, you{' '}
-      <Bold>do not</Bold> need to verify your identity.
+      Government officials who contact you should know who you are. As the <Bold>recipient</Bold> of a message or call,
+      you <Bold>do not</Bold> need to verify your identity.
     </Para>
   </>,
 )
@@ -86,7 +86,7 @@ personalDetailsKnown.addInstruction(
 
 personalDetailsKnown.addDescription(
   <Text>
-    Knowing your personal details does not make the person legitimate. Your details could have been leaked by other
+    Knowing your personal details does not mean the person may not be a scammer. Your details could have been leaked by other
     organisations or collected from somewhere else.
   </Text>,
 )
@@ -94,7 +94,7 @@ personalDetailsKnown.addDescription(
 personalDetailsUnknownOutcome.addDescription(
   <>
     <Para>
-      Government officials usually do not cold call citizens, unless it's for surveys or public education campaigns.
+      Government officials seldom cold call citizens, unless it's for surveys or public education campaigns.
     </Para>
     <Para>
       If they do contact you for matters pertaining primarily to you or your family, they <Bold>should</Bold> already

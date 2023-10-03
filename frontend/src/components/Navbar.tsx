@@ -1,5 +1,6 @@
 import {
   Box,
+  Center,
   Drawer,
   DrawerBody,
   DrawerCloseButton,
@@ -17,19 +18,21 @@ import { RxHamburgerMenu } from 'react-icons/rx'
 import { RiGraduationCapFill } from 'react-icons/ri'
 import { HiMagnifyingGlass } from 'react-icons/hi2'
 import { useNavigate } from 'react-router-dom'
+import Bold from './text/Bold'
 
 const Navbar = () => {
-  const { isOpen, onOpen, onClose } = useDisclosure()
+  const { isOpen: isNavbarOpen, onOpen: onNavbarOpen, onClose: onNavbarClose } = useDisclosure()
+  const { isOpen: isInfoOpen, onOpen: onInfoOpen, onClose: onInfoClose } = useDisclosure()
   const navigate = useNavigate()
 
   const goTo = (page: string) => {
     navigate(page)
-    onClose()
+    onNavbarClose()
   }
 
   return (
     <>
-      <Box bgColor="gray.900" px={8}>
+      <Box bgColor="gray.900" px={[4, 8]}>
         <HStack h={16} alignItems="center" justifyContent="space-between">
           <IconButton
             size="lg"
@@ -41,10 +44,10 @@ const Navbar = () => {
             }}
             icon={<RxHamburgerMenu />}
             aria-label="menu"
-            onClick={onOpen}
+            onClick={onNavbarOpen}
           />
           <Heading justifySelf="start" color="gray.300">
-            <Text as="i" onClick={() => goTo('/')} _hover={{ cursor: 'pointer' }}>
+            <Text as="i" onClick={() => onInfoOpen()} _hover={{ cursor: 'pointer' }}>
               ScamOrNot
             </Text>
           </Heading>
@@ -62,7 +65,7 @@ const Navbar = () => {
           />
         </HStack>
       </Box>
-      <Drawer isOpen={isOpen} placement="left" onClose={onClose} size="md">
+      <Drawer isOpen={isNavbarOpen} placement="left" onClose={onNavbarClose} size="md">
         <DrawerOverlay />
         <DrawerContent>
           <DrawerCloseButton />
@@ -94,6 +97,28 @@ const Navbar = () => {
                 <RiGraduationCapFill />
                 <Text fontWeight="semibold">Learn About Scams</Text>
               </HStack>
+            </VStack>
+          </DrawerBody>
+        </DrawerContent>
+      </Drawer>
+      {/* Info drawer */}
+      <Drawer isOpen={isInfoOpen} placement="top" onClose={onInfoClose} size="md">
+        <DrawerOverlay />
+        <DrawerContent>
+          <DrawerCloseButton />
+          <DrawerHeader>
+            <Center>
+              <Heading size="xl" as="i" onClick={() => goTo('/')} _hover={{ cursor: 'pointer' }}>
+                ScamOrNot
+              </Heading>
+            </Center>
+          </DrawerHeader>
+          <DrawerBody mt={4} mb={8}>
+            <VStack>
+              <Text fontSize="lg">
+                A simple app to let you <Bold>check</Bold> if you've been scammed, and <Bold>learn</Bold> how not to be
+                scammed.
+              </Text>
             </VStack>
           </DrawerBody>
         </DrawerContent>

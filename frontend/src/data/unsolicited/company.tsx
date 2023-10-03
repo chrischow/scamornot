@@ -1,5 +1,6 @@
-import { Heading, Tag } from '@chakra-ui/react'
+import TacticTag from '../../components/TacticTag'
 import Bold from '../../components/text/Bold'
+import ContentHeader from '../../components/text/ContentHeader'
 import Para from '../../components/text/Para'
 import { Node } from '../../utils/tree'
 import {
@@ -33,13 +34,42 @@ offer.addChildren([software, transfer, otp, info, signup])
 // Content
 unsolicitedCompany.addDescription(
   <>
-    <Heading size="md">Be careful of impersonators.</Heading>
+    <ContentHeader>Be careful of impersonators.</ContentHeader>
     <Para>
       Always check whether the person was using an <Bold>official number</Bold> to contact you. There is no reason why
       business staff would use a personal number or an unofficial number for official business.
     </Para>
     <Para>
-      Learn more about <Tag colorScheme="red">Impersonation</Tag>.
+      Learn more about <TacticTag>Impersonation</TacticTag>.
     </Para>
+  </>,
+)
+unsolicitedCompany.addInstruction(
+  <>
+    <ContentHeader>Did the person contact you regarding any of the topics below?</ContentHeader>
+  </>,
+)
+
+account.addInstruction(
+  <>
+    <ContentHeader>Did they know your personal details?</ContentHeader>
+    <Para>
+      Company staff who contact you about your account should know who you are. As the <Bold>recipient</Bold> of a
+      message or call, you <Bold>do not</Bold> need to verify your identity.
+    </Para>
+  </>,
+)
+
+promotion.addInstruction(
+  <>
+    <ContentHeader>
+      As part of the product or service promotion, did the person ask you to do any of the following things?
+    </ContentHeader>
+  </>,
+)
+
+offer.addInstruction(
+  <>
+    <ContentHeader>As part of the offer, did the person ask you to do any of the following things?</ContentHeader>
   </>,
 )

@@ -82,6 +82,10 @@ const generateTransferSubtree = () => {
         If you're supposed to be <Bold>receiving</Bold> money, then{' '}
         <Bold>money should not be leaving your account in the first place</Bold>.
       </Para>
+      <Para>
+        If you're supposed to be <Bold>paying</Bold> the person, make sure (a) there is a valid reason for doing so and
+        (b) you are sure that you will get what you are paying for.
+      </Para>
     </>,
   )
 
@@ -99,11 +103,10 @@ const generateTransferSubtree = () => {
         <CustomLink href="https://www.uen.gov.sg/ueninternet/faces/pages/uenSrch.jspx">
           official government website
         </CustomLink>
-        . Using the <Bold>entity name</Bold>, check whether the company is legitimate by searching in Google.
+        . Then, using the <Bold>entity name</Bold>, check whether the company is legitimate by searching in Google.
       </Para>
       <Para>
-        If the top few results clearly refer to the company (e.g. official site, official social media for the company,
-        news/content about the company), it is likely that it is legitimate.
+        There should be (a) an official site or (b) official social media accounts or (c) some news about the company.
       </Para>
     </>,
   )
@@ -116,9 +119,9 @@ const generateTransferSubtree = () => {
         (e.g. Facebook Marketplace, Carousell).
       </Para>
       <Para>
-        Also, note that bigger, more reputable organisations like the government or businesses / companies normally
-        don't use PayNow to receive money. You should be suspicious if you were asked to pay a big organisation via
-        PayNow.
+        Also, note that bigger, more reputable organisations like the government or businesses / companies rarely use
+        PayNow <Bold>phone numbers</Bold> to receive money. You should be suspicious if you were asked to pay a big
+        organisation using a PayNow phone number.
       </Para>
     </>,
   )
@@ -138,6 +141,15 @@ const generateTransferSubtree = () => {
           IRAS
         </CustomLink>
         ).
+      </Para>
+    </>,
+  )
+
+  crypto.addInstruction(
+    <>
+      <ContentHeader>Can you verify that the crypto wallet belongs to your intended recipient?</ContentHeader>
+      <Para>
+        This is a lot more difficult to determine. If you cannot verify this, it is best not to make the transfer.
       </Para>
     </>,
   )

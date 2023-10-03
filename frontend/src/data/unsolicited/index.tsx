@@ -25,8 +25,8 @@ unsolicited.addDescription(
       When scammers contact you, it is at a <Bold>time of their choosing</Bold>, hoping to catch you off guard.
     </Para>
     <Para>
-      If you don't feel you are at your sharpest, ask for a contact number (don't save it!) to call them back when YOU
-      are ready.
+      If you don't feel you are at your sharpest, take down the contact number on paper (don't save it in your phone!)
+      and contact them when YOU are ready.
     </Para>
   </>,
 )

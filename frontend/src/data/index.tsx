@@ -7,6 +7,6 @@ export const root = new Node('Root')
 root.addChildren([unsolicited, platform])
 root.addInstruction(
   <>
-    <ContentHeader>Tell us how you were contacted.</ContentHeader>
+    <ContentHeader>How were you contacted by the person?</ContentHeader>
   </>,
 )

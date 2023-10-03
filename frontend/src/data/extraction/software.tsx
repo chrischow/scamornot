@@ -59,12 +59,9 @@ const generateSoftwareSubtree = (): Node => {
     <>
       <ContentHeader>Is it clear why you NEED to download the software?</ContentHeader>
       <Para>
-        Nowadays, almost everything can be done via a website. There has to be a good reason why you need to go through
-        the trouble of installing an app or software to do something simple.
-      </Para>
-      <Para>
-        <Bold>Some terrible reasons to install an app / software:</Bold> To complete a payment, to verify your identity
-        (unless it's the real SingPass app), to provide personal information, to claim a discount/offer/prize.
+        Nowadays, almost everything can be done using a website: queueing, shopping, transferring money, registering,
+        providing info, etc. There has to be a very good reason why you need to go through the trouble of installing an
+        app or software to do something simple.
       </Para>
     </>,
   )

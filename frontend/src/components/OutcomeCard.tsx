@@ -33,7 +33,7 @@ const OutcomeCard = ({ node }: { node: Node }) => {
       headerText = 'Seems Okay.'
   }
   return (
-    <Box mt={16}>
+    <Box mt={10} mb={8}>
       <VStack>
         <Heading size="xl" color={color}>
           <HStack>
