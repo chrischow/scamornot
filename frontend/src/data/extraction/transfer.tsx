@@ -1,12 +1,14 @@
+import Bold from '../../components/text/Bold'
+import ContentHeader from '../../components/text/ContentHeader'
+import CustomLink from '../../components/text/CustomLink'
+import Para from '../../components/text/Para'
 import { NOT_SCAM_MESSAGE } from '../../contants'
 import { Node, NodeType } from '../../utils/tree'
 
 const generateTransferSubtree = () => {
   // Nodes
   const transfer = new Node('I was asked to transfer some financial assets (e.g. money, cryptocurrency).')
-  const transferReasonNotOk = new Node(
-    "I don't actually know why I need to transfer the money OR I also don't think it makes sense to transfer the money.",
-  )
+  const transferReasonNotOk = new Node("I don't think it makes sense to transfer the assets.")
   const transferReasonNotOkOutcome = new Node('Find out more info before making the transfer.', NodeType.WARNING)
   const transferReasonOk = new Node('The reason I was given for transferring the assets makes sense.')
 
@@ -37,7 +39,7 @@ const generateTransferSubtree = () => {
     'I CANNOT verify that the bank account number belongs to the intended recipient.',
   )
   const directAccountVerifiedNotOkOutcome = new Node(
-    'This could be a scam. Do not transfer the money until you have verified that the bank account is correct.',
+    'This could be a scam. Do not transfer the money until you have verified that the bank account number is correct.',
     NodeType.SCAM,
   )
 
@@ -71,6 +73,74 @@ const generateTransferSubtree = () => {
   crypto.addChildren([cryptoWalletVerifiedOk, cryptoWalletVerifiedNotOk])
   cryptoWalletVerifiedOk.addChildren([cryptoWalletVerifiedOkOutcome])
   cryptoWalletVerifiedNotOk.addChildren([cryptoWalletVerifiedNotOkOutcome])
+
+  // Content
+  transfer.addInstruction(
+    <>
+      <ContentHeader>Is it clear why you NEED to transfer the financial assets?</ContentHeader>
+      <Para>
+        If you're supposed to be <Bold>receiving</Bold> money, then{' '}
+        <Bold>money should not be leaving your account in the first place</Bold>.
+      </Para>
+    </>,
+  )
+
+  transferReasonOk.addInstruction(
+    <>
+      <ContentHeader>What type of transfer did the person ask for?</ContentHeader>
+    </>,
+  )
+
+  paynowUen.addInstruction(
+    <>
+      <ContentHeader>Does the organisation that owns that UEN seem legitimate?</ContentHeader>
+      <Para>
+        Search for the UEN at the{' '}
+        <CustomLink href="https://www.uen.gov.sg/ueninternet/faces/pages/uenSrch.jspx">
+          official government website
+        </CustomLink>
+        . Using the <Bold>entity name</Bold>, check whether the company is legitimate by searching in Google.
+      </Para>
+      <Para>
+        If the top few results clearly refer to the company (e.g. official site, official social media for the company,
+        news/content about the company), it is likely that it is legitimate.
+      </Para>
+    </>,
+  )
+
+  paynowPhone.addInstruction(
+    <>
+      <ContentHeader>Can you verify that the phone number belongs to your intended recipient?</ContentHeader>
+      <Para>
+        Check whether the phone number is listed on the intended recipient's official website or business profile page
+        (e.g. Facebook Marketplace, Carousell).
+      </Para>
+      <Para>
+        Also, note that bigger, more reputable organisations like the government or businesses / companies normally
+        don't use PayNow to receive money. You should be suspicious if you were asked to pay a big organisation via
+        PayNow.
+      </Para>
+    </>,
+  )
+
+  direct.addInstruction(
+    <>
+      <ContentHeader>Can you verify that the bank account belongs to your intended recipient?</ContentHeader>
+      <Para>
+        Check whether the bank account number is listed on the intended recipient's official website or business profile
+        page (e.g. Facebook Marketplace, Carousell).
+      </Para>
+      <Para>
+        Bigger, more reputable organisations like the government or businesses / companies usually offer more secure
+        ways to pay, like NETS, custom QR codes, or AXS machines. If they allow direct transfers, the instructions
+        clearly state the bank number (example:{' '}
+        <CustomLink href="https://www.iras.gov.sg/quick-links/payments?taxtype=Individual%20Income%20Tax">
+          IRAS
+        </CustomLink>
+        ).
+      </Para>
+    </>,
+  )
 
   return transfer
 }

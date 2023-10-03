@@ -1,4 +1,7 @@
 import { Heading, ListItem, OrderedList, Tag, Text } from '@chakra-ui/react'
+import Bold from '../../components/text/Bold'
+import ContentHeader from '../../components/text/ContentHeader'
+import Para from '../../components/text/Para'
 import { NOT_SCAM_MESSAGE } from '../../contants'
 import { Node, NodeType } from '../../utils/tree'
 import {
@@ -8,8 +11,6 @@ import {
   generateSoftwareSubtree,
   generateTransferSubtree,
 } from '../extraction'
-import ContentHeader from '../../components/text/ContentHeader'
-import Bold from '../../components/text/Bold'
 
 // Nodes (depth-first)
 export const unsolicitedGovt = new Node('The person claimed to be from the government.')
@@ -48,11 +49,11 @@ followUpSaveContact.addChildren([followUpSaveContactOutcome])
 unsolicitedGovt.addDescription(
   <>
     <Heading size="md">Be careful of impersonators.</Heading>
-    <Text mt={4}>
+    <Para>
       Always check whether the person was using an <Bold>official number</Bold> to contact you. There is no reason why a
       government official would use a personal number or an unofficial number for official purposes.
-    </Text>
-    <Text mt={4}>Other things that impersonators of government officials may do:</Text>
+    </Para>
+    <Para>Other things that impersonators of government officials may do:</Para>
     <OrderedList mt={4}>
       <ListItem>Speak with a commanding voice to appear authoritative</ListItem>
       <ListItem>Make claims that you are in trouble with the law</ListItem>
@@ -63,24 +64,19 @@ unsolicitedGovt.addDescription(
         <ListItem>Put up posters with the logo of the government agency they are claiming to be from</ListItem>
       </OrderedList>
     </OrderedList>
-    <Text mt={4}>
+    <Para>
       Learn more about <Tag colorScheme="red">Impersonation</Tag>.
-    </Text>
+    </Para>
   </>,
 )
 
 unsolicitedGovt.addInstruction(
   <>
     <ContentHeader>Did they know your personal details?</ContentHeader>
-    <Text mt={4}>
+    <Para>
       Government officials who contact you should know who you are. As the recipient of a message or call, you{' '}
-      <Bold>do not</Bold> need to verify your identity. The burden is on them to know who they are contacting in the
-      first place.
-    </Text>
-    <Text mt={4}>
-      Knowing your personal details does not make the person legitimate. Your details could have been leaked by other
-      organisations or collected from somewhere else.
-    </Text>
+      <Bold>do not</Bold> need to verify your identity.
+    </Para>
   </>,
 )
 
@@ -88,64 +84,71 @@ personalDetailsKnown.addInstruction(
   <ContentHeader>Were they just providing information, or did they ask you to do something?</ContentHeader>,
 )
 
+personalDetailsKnown.addDescription(
+  <Text>
+    Knowing your personal details does not make the person legitimate. Your details could have been leaked by other
+    organisations or collected from somewhere else.
+  </Text>,
+)
+
 personalDetailsUnknownOutcome.addDescription(
   <>
-    <Text>
+    <Para>
       Government officials usually do not cold call citizens, unless it's for surveys or public education campaigns.
-    </Text>
-    <Text mt={4}>
+    </Para>
+    <Para>
       If they do contact you for matters pertaining primarily to you or your family, they <Bold>should</Bold> already
       have your personal details. You <Bold>do not</Bold> need to verify your identity.
-    </Text>
+    </Para>
   </>,
 )
 
 provideInfo.addInstruction(
   <>
     <ContentHeader>Did they ask you to save their contact?</ContentHeader>
-    <Text mt={4}>
+    <Para>
       Only save someone's contact if you are <Bold>very sure</Bold> that they are who they say they are.
-    </Text>
+    </Para>
   </>,
 )
 
 infoSaveContactOutcome.addDescription(
   <>
-    <Text mt={4}>
+    <Para>
       This is dangerous because the next time the person contacts you, their contact appears as something that seems
       trustworthy, like "Police Officer Tan" or "Shopee Sales Officer Aisha". But, that may not be the person's actual
       identity.
-    </Text>
-    <Text mt={4}>
+    </Para>
+    <Para>
       There is generally <Bold>no need</Bold> to save the contact of a legitimate organisation. You can always go to the
       official source to get the contact number. Legitimate organisations list their contact numbers on their website.
       Even solo businesspeople have their official business numbers listed on some page (e.g. eCommerce platform profile
       page).
-    </Text>
+    </Para>
   </>,
 )
 
 followUpSaveContactOutcome.addDescription(
   <>
-    <Text mt={4}>
+    <Para>
       This is dangerous because the next time the person contacts you, their contact appears as something that seems
       trustworthy, like "Police Officer Tan" or "Shopee Sales Officer Aisha". But, that may not be the person's actual
       identity.
-    </Text>
-    <Text mt={4}>
+    </Para>
+    <Para>
       There is generally <Bold>no need</Bold> to save the contact of a legitimate organisation. You can always go to the
       official source to get the contact number. Legitimate organisations list their contact numbers on their website.
       Even solo businesspeople have their official business numbers listed on some page (e.g. eCommerce platform profile
       page).
-    </Text>
+    </Para>
   </>,
 )
 
 govtFollowUpAction.addInstruction(
   <>
     <ContentHeader>What did the person ask you to do?</ContentHeader>
-    <Text mt={4}>
+    <Para>
       There may have been other things the person asked for. What we're more interested in are the things listed below.
-    </Text>
+    </Para>
   </>,
 )

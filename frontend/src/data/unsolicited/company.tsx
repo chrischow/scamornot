@@ -1,4 +1,6 @@
-import { Heading, Tag, Text } from '@chakra-ui/react'
+import { Heading, Tag } from '@chakra-ui/react'
+import Bold from '../../components/text/Bold'
+import Para from '../../components/text/Para'
 import { Node } from '../../utils/tree'
 import {
   generateInfoSubtree,
@@ -8,7 +10,6 @@ import {
   generateTransferSubtree,
 } from '../extraction'
 import { unsolicitedGovt } from './govt'
-import Bold from '../../components/text/Bold'
 
 // Nodes
 export const unsolicitedCompany = new Node('The person claimed to be from a company.')
@@ -33,12 +34,12 @@ offer.addChildren([software, transfer, otp, info, signup])
 unsolicitedCompany.addDescription(
   <>
     <Heading size="md">Be careful of impersonators.</Heading>
-    <Text mt={4}>
+    <Para>
       Always check whether the person was using an <Bold>official number</Bold> to contact you. There is no reason why
       business staff would use a personal number or an unofficial number for official business.
-    </Text>
-    <Text mt={4}>
+    </Para>
+    <Para>
       Learn more about <Tag colorScheme="red">Impersonation</Tag>.
-    </Text>
+    </Para>
   </>,
 )

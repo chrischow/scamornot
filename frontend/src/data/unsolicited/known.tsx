@@ -1,6 +1,7 @@
 import { Heading, Text } from '@chakra-ui/react'
 import { Node, NodeType } from '../../utils/tree'
 import Bold from '../../components/text/Bold'
+import Para from '../../components/text/Para'
 
 // Nodes
 export const unsolicitedKnown = new Node(
@@ -32,26 +33,26 @@ notRecognised.addChildren([notRecognisedOutcome])
 refuseInfo.addDescription(
   <>
     <Heading size="md">Don't give scammers an identity to take on.</Heading>
-    <Text mt={4}>
+    <Para>
       The very first thing that people do when contacting one another is <Bold>identify themselves</Bold>. This is
       especially true when it is expected that you don't already know the person.
-    </Text>
-    <Text mt={4}>
+    </Para>
+    <Para>
       What's happening here is that the other person is waiting for you to <Bold>make an assumption</Bold> about who
       they are, and then pretend to be that person you have in mind.
-    </Text>
+    </Para>
   </>,
 )
 
 recognised.addDescription(
   <>
     <Heading size="md">Are you sure they are who you think they are?</Heading>
-    <Text mt={4}>
+    <Para>
       You may{' '}
       <Text as="span" fontStyle="italic">
         think
       </Text>{' '}
       you recognise the person, but why did they contact you using an unknown number?
-    </Text>
+    </Para>
   </>,
 )
